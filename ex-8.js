@@ -375,4 +375,17 @@ const bills = [
 
 // Start coding here
 
-const totalPaidByLocation;
+const totalPaidByLocation = (bills)=>{
+    const totalProvice = bills.reduce((acc,bill)=>{
+        if (acc[bill.location]){
+                acc[bill.location] += bill.total;
+      }else{
+          acc[bill.location] = bill.total;
+      }
+      return acc;
+},{});
+    return totalProvice;
+}
+
+const totalProvice = totalPaidByLocation(bills);
+console.log(totalProvice)
